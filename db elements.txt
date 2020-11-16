@@ -1,0 +1,25 @@
+For Voice Sensor
+
+1. Time at which commmand was given (ok google)
+2. Time of command initiation
+3. Feeding Interval(how many sec the food was disppensed)Default
+4. Command Status
+
+For Bowl weight Sensor
+
+1. Weight 
+2. Time 1 
+3. Status(Completly eaten / partially)
+
+For Cointainer Weight Sensor
+
+1. Weight 1 (Before Dispense)
+2. Weight 2 (AFter Dispense)  ----> 1 - 2 = Food Dispensed 
+
+For IR Sensor (To check the threshold)
+
+1. Status (checks the threshold) 
+
+
+
+

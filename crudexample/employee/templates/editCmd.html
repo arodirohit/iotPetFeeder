@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Index</title>
+  {% load staticfiles %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+</head>
+
+<body>
+  <form method="POST" class="post-form" action="/updateCmd/{{command.id}}">
+    {% csrf_token %}
+    <div class="container">
+      <br>
+      <div class="form-group row">
+        <label class="col-sm-1 col-form-label"></label>
+        <div class="col-sm-4">
+          <h3>Update Details</h3>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Command Id:</label>
+        <div class="col-sm-4">
+          <input type="text" name="cid" id="id_eid" required maxlength="20" value="{{ command.CmdID }}" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Command Date:</label>
+        <div class="col-sm-4">
+          <input type="text" name="cmdDate" id="id_cmdDate" required maxlength="100" value="{{ command.CmdDate }}" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">CommandTime:</label>
+        <div class="col-sm-4">
+          <input type="time" name="cmdTime" id="id_cmdTime" required maxlength="254" value="{{ command.CmdTime }}" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Command Status:</label>
+        <div class="col-sm-4">
+          <input type="text" name="cmdStatus" id="id_cmdStatus" required maxlength="15" value="{{command.CmdStatus} }}" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-1 col-form-label"></label>
+        <div class="col-sm-4">
+          <button type="submit" class="btn btn-success">Update</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</body>
+
+</html>
