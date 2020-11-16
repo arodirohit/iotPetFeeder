@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Command Records</title>
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+</head>
+<body>
+<table class="table table-striped table-bordered table-sm">
+<thead class="thead-dark">
+<tr>
+<th>Bowl Weight Date</th>
+<th>Bowl Weight Before</th>
+<th>Bowl Weight After</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody>
+{% for bowlWeight in bowlweights %}
+<tr>
+<td>{{ bowlWeight.BowlWeightDate }}</td>
+<td>{{ bowlWeight.BowlWeightBefore }}</td>
+<td>{{ bowlWeight.BowlWeightAfter }}</td>
+<td>
+<a href="/editBowlWght/{{ bowlWeight.id }}"><span class="glyphicon glyphiconpencil"
+>Edit</span></a>
+<a href="/destroyBowlWght/{{ bowlWeight.id }}">Delete</a>
+</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+<br>
+<br>
+<center><a href="/bowlweight" class="btn btn-primary">Add New Record</a></center>
+</body>
+</html>

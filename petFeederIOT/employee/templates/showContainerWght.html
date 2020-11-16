@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Command Records</title>
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+</head>
+<body>
+<table class="table table-striped table-bordered table-sm">
+<thead class="thead-dark">
+<tr>
+  <th>
+    Container Weight ID
+  </th>
+<th>Container Weight Date</th>
+<th>Container Weight Before</th>
+<th>Container Weight After</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody>
+{% for containerWeight in containerweights %}
+<tr>
+  <td>{{ containerWeight.ContainerWeightID }}</td>
+<td>{{ containerWeight.ContainerDate }}</td>
+<td>{{ containerWeight.WeightAfterRelease }}</td>
+<td>{{ containerWeight.WeightBeforeRelease }}</td>
+<td>
+<a href="/editContainerWght/{{ containerWeight.id }}"><span class="glyphicon glyphiconpencil"
+>Edit</span></a>
+<a href="/destroyContainerWght/{{ containerWeight.id }}">Delete</a>
+</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+<br>
+<br>
+<center><a href="/containerweight" class="btn btn-primary">Add New Record</a></center>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Index</title>
+  {% load staticfiles %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+</head>
+
+<body>
+  <form method="POST" class="post-form" action="/updateBowlWght/{{bowlweight.id}}">
+    {% csrf_token %}
+    <div class="container">
+      <br>
+      <div class="form-group row">
+        <label class="col-sm-1 col-form-label"></label>
+        <div class="col-sm-4">
+          <h3>Update Details</h3>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Bowl Weight ID:</label>
+        <div class="col-sm-4">
+          <input type="text" name="bid" id="id_bid" required maxlength="20" value="{{ bowlweight.BowlWeightID }}" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Bowl Weight Date:</label>
+        <div class="col-sm-4">
+          <input type="text" name="bdate" id="id_bdate" required maxlength="20" value="{{ bowlweight.BowlWeightDate }}" />
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Bowl Weight Before :</label>
+        <div class="col-sm-4">
+          <input type="number" name="bwghtbefore" id="id_bwghtbefore" required maxlength="254" value="{{ bowlweight.BowlWeightBefore }}" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Bowl Weight After</label>
+        <div class="col-sm-4">
+          <input type="number" name="bwghtafter" id="id_bwghtafter" required maxlength="254" value="{{bowlweight.BowlWeightAfter }}" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-1 col-form-label"></label>
+        <div class="col-sm-4">
+          <button type="submit" class="btn btn-success">Update</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</body>
+
+</html>

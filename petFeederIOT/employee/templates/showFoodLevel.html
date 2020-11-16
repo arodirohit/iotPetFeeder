@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Command Records</title>
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+</head>
+<body>
+<table class="table table-striped table-bordered table-sm">
+<thead class="thead-dark">
+<tr>
+  <th>
+     Food level Record ID
+  </th>
+<th> Food Level Recorded Time</th>
+<th> Food Level Status </th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody>
+{% for foodlevel in foodlevels %}
+<tr>
+  <td>{{ foodlevel.FoodLevelMonitorID }}</td>
+<td>{{ foodlevel.RecordedTime }}</td>
+<td>{{ foodlevel.FoodLevelStatus }}</td>
+<td>
+<a href="/editFoodLevel/{{foodLevel.id}}"><span class="glyphicon glyphiconpencil"
+>Edit</span></a>
+<a href="/destroyFoodLevel/{{foodLevel.id}}">Delete</a>
+</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+<br>
+<br>
+<center><a href="/foodLevelIR" class="btn btn-primary">Add New Record</a></center>
+</body>
+</html>
