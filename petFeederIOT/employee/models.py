@@ -47,7 +47,7 @@ class FoodContainerWeight(models.Model):
 # IR sensor data model
 class FoodLevelMonitor(models.Model):
     FoodLevelMonitorID = models.CharField(max_length=20)
-    RecordedTime = models.TimeField()
+    RecordedTime = models.CharField(max_length=15)
     FoodLevelStatus = models.BooleanField()
     class Meta:
         db_table = "FoodLevel"

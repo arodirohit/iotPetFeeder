@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'crudexample.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'djangodb',
+        'NAME': 'petfeederDB',
         'USER' : 'root',
         'PASSWORD' : '0207',
         'HOST' : 'localhost',

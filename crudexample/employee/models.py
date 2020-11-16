@@ -37,6 +37,7 @@ class BowlWeight(models.Model):
 
 # Container weight sensor data model
 class FoodContainerWeight(models.Model):
+    ContainerWeightID = models.CharField(max_length=20)
     ContainerDate = models.CharField(max_length=20)
     WeightAfterRelease = models.FloatField()
     WeightBeforeRelease = models.FloatField()
@@ -45,6 +46,7 @@ class FoodContainerWeight(models.Model):
 
 # IR sensor data model
 class FoodLevelMonitor(models.Model):
+    FoodLevelMonitorID = models.CharField(max_length=20)
     RecordedTime = models.TimeField()
     FoodLevelStatus = models.BooleanField()
     class Meta:

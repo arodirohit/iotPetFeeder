@@ -25,9 +25,9 @@
 <td>{{ foodlevel.RecordedTime }}</td>
 <td>{{ foodlevel.FoodLevelStatus }}</td>
 <td>
-<!-- <a href="/editFoodLevel/{{foodlevel.id}}"><span class="glyphicon glyphiconpencil"
->Edit</span></a> -->
-<a href="/destroyFoodLevel/{{foodlevel.id}}">Delete</a>
+<a href="/editFoodLevel/{{ foodLevel.id }}"><span class="glyphicon glyphiconpencil"
+>Edit</span></a>
+<a href="/destroyFoodLevel/{{ foodLevel.id }}">Delete</a>
 </td>
 </tr>
 {% endfor %}

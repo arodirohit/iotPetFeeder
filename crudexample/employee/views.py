@@ -85,11 +85,11 @@ def containerWeight(request):
 
 def showContainerWght(request):
     containerweights = FoodContainerWeight.objects.all()
-    return render(request,"showBowlWght.html",{'containerweights':containerweights})
+    return render(request,"showContainerWght.html",{'containerweights':containerweights})
 def editContainerWght(request, id):
     containerweight = FoodContainerWeight.objects.get(id=id)
     return render(request,'editContainerWght.html', {'containerWeight':containerweight})
-def updateCintainerWght(request, id):
+def updateContainerWght(request, id):
     containerweight = FoodContainerWeight.objects.get(id=id)
     form = FoodContainerWeightForm(request.POST, instance = containerweight)
     if form.is_valid():
@@ -100,3 +100,35 @@ def destroyContainerWght(request, id):
     containerweight = FoodContainerWeight.objects.get(id=id)
     containerweight.delete()
     return redirect("/showContainerWght")
+
+#for IR Sensor
+def foodLevelIR(request):
+    if request.method == "POST":
+        form = FoodLevelMonitorForm(request.POST)
+        if form.is_valid():
+            try:
+                form.save()
+                return redirect('/showFoodLevel')
+            except:
+                return redirect('/showError')
+    else:
+        form = FoodLevelMonitorForm()
+    return render(request,'indexFoodLevel.html',{'form':form})
+
+def showFoodLevel(request):
+    foodlevels = FoodLevelMonitor.objects.all()
+    return render(request,"showFoodLevel.html",{'foodlevels':foodlevels})
+def editFoodLevel(request, id):
+    foodLevel = FoodLevelMonitor.objects.get(id=id)
+    return render(request,'editFoodLevel.html', {'foodLevel':foodLevel})
+def updateFoodLevel(request, id):
+    foodLevel = FoodLevelMonitor.objects.get(id=id)
+    form = FoodLevelMonitorForm(request.POST, instance = foodLevel)
+    if form.is_valid():
+        form.save()
+        return redirect("/showFoodLevel")
+    return render(request, 'editFoodLevel.html', {'foodLevel':foodLevel})
+def destroyFoodLevel(request, id):
+    foodLevel = FoodLevelMonitor.objects.get(id=id)
+    foodLevel.delete()
+    return redirect("/showFoodLevel")

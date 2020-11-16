@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Index</title>
+ 	{% load static %}
+ 	<link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+</head>
+<body>
+<form method="POST" class="post-form" action="/bowlweight">
+    {% csrf_token %}
+  <div class="container">
+<br>
+  <div class="form-group row">
+    <label class="col-sm-1 col-form-label"></label>
+    <div class="col-sm-4">
+      <h3>For Food Level IR Sensor</h3>
+    </div>
+</div>
+<div class="form-group row">
+  <label class="col-sm-2 col-form-label">Food Level IR ID</label>
+  <div class="col-sm-4">
+    {{ form.FoodLevelMonitorID }}
+  </div>
+</div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Recorded Time</label>
+    <div class="col-sm-4">
+      {{ form.RecordedTime }}
+    </div>
+  </div>
+<div class="form-group row">
+  <label class="col-sm-2 col-form-label">Food Level Status</label>
+  <div class="col-sm-4">
+    {{ form.FoodLevelStatus }}
+  </div>
+</div>
+<div class="form-group row">
+  <label class="col-sm-1 col-form-label"></label>
+  <div class="col-sm-4">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</div>
+</div>
+</form>
+</body>
+</html>
